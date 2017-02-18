@@ -32,10 +32,15 @@ public class TweetGen {
 	 * @throws IOException
 	 */
 	public static String makeTweet() throws IOException {
-		return getElementFrom(headlinesPath)
+		String tweet = getElementFrom(headlinesPath)
 				+ " " + getElementFrom(bewertungenPath)
 				+ " " + getElementFrom(aussagePath)
 				+ " " + getElementFrom(kommentarePath);
+		if (tweet.length() <= 140) {
+			return tweet;
+		} else {
+			return makeTweet();
+		}
 	}
 	
 	/**
