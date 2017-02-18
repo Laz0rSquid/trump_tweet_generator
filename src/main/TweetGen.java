@@ -11,11 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
 /**
  * @author Marcus Kopp Feb 18, 2017
  * v.1.0
  */
-public class TweetGen {
+public class TweetGen extends Application {
 //	private ArrayList<String> arrList = new ArrayList<String>();
 	
 	private static String headlinesPath = "resources/headlines.txt";
@@ -23,8 +31,41 @@ public class TweetGen {
 	private static String aussagePath = "resources/aussage.txt";
 	private static String kommentarePath = "resources/kommentare.txt";
 	
+	@FXML
+	private Label label = new Label();
+
+	@FXML
+	public void buttonPressed(){
+		try {
+			label.setWrapText(true);
+			label.setMaxWidth(400);
+			label.setText(makeTweet());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/main/main.fxml"));
+			Scene scene = new Scene(root,500,500);
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) throws IOException {
 		System.out.println(makeTweet());
+		launch(args);
+		
+		
+		
 	}
 	
 	/**
