@@ -20,7 +20,7 @@ public class TweetGen {
 	private static String headlinesPath = "resources/headlines.txt";
 	private static String bewertungenPath = "resources/bewertungen.txt";
 	private static String aussagePath = "resources/aussage.txt";
-	private static String kommentarePath = "resources/headlines.txt";
+	private static String kommentarePath = "resources/kommentare.txt";
 	
 	public static void main(String[] args) throws IOException {
 		System.out.println(makeTweet());
