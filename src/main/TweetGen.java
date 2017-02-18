@@ -13,6 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author Marcus Kopp Feb 18, 2017
+ * v.1.0
  */
 public class TweetGen {
 //	private ArrayList<String> arrList = new ArrayList<String>();
