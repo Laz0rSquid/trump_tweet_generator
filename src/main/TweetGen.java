@@ -18,6 +18,9 @@ public class TweetGen {
 //	private ArrayList<String> arrList = new ArrayList<String>();
 	
 	private static String headlinesPath = "resources/headlines.txt";
+	private static String bewertungenPath = "resources/bewertungen.txt";
+	private static String aussagePath = "resources/aussage.txt";
+	private static String kommentarePath = "resources/headlines.txt";
 	
 	public static void main(String[] args) throws IOException {
 		System.out.println(makeTweet());
@@ -29,7 +32,10 @@ public class TweetGen {
 	 * @throws IOException
 	 */
 	public static String makeTweet() throws IOException {
-		return getElementFrom(headlinesPath);
+		return getElementFrom(headlinesPath)
+				+ " " + getElementFrom(bewertungenPath)
+				+ " " + getElementFrom(aussagePath)
+				+ " " + getElementFrom(kommentarePath);
 	}
 	
 	/**
